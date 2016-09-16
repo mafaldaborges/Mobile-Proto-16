@@ -21,6 +21,7 @@ public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {
     }
+    /**Fragment allows text boxes to be edited*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +37,8 @@ public class MainActivityFragment extends Fragment {
         text.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d("MainActivityFragment", "nemesis!");
+                /**When text on fragment is clicked an alert dialog box pops up and allows text to be edited
+                 * there is also a cancel functionality*/
                 AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
                 alertDialog.setTitle("Change the text!");
                 final EditText input = new EditText(view.getContext());
@@ -61,9 +63,9 @@ public class MainActivityFragment extends Fragment {
         });
 
         text2.setOnClickListener(new View.OnClickListener(){
+            /**Same as previous but different text box*/
             @Override
             public void onClick(View view) {
-                Log.d("MainActivityFragment", "nemesis!");
                 AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
                 alertDialog.setTitle("Change the text!");
                 final EditText input = new EditText(view.getContext());
@@ -90,7 +92,7 @@ public class MainActivityFragment extends Fragment {
         text3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d("MainActivityFragment", "nemesis!");
+                /**Same as previous but different text box*/
                 AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
                 alertDialog.setTitle("Change the text!");
                 final EditText input = new EditText(view.getContext());
@@ -117,7 +119,7 @@ public class MainActivityFragment extends Fragment {
         text4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d("MainActivityFragment", "nemesis!");
+                /**Same as previous but different text box*/
                 AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
                 alertDialog.setTitle("Change the text!");
                 final EditText input = new EditText(view.getContext());
@@ -144,7 +146,7 @@ public class MainActivityFragment extends Fragment {
         text5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d("MainActivityFragment", "nemesis!");
+                /**Same as previous but different text box*/
                 AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
                 alertDialog.setTitle("Change the text!");
                 final EditText input = new EditText(view.getContext());

@@ -21,6 +21,7 @@ import android.widget.TextView;
 public class MainActivityFragment2 extends Fragment{
     public MainActivityFragment2(){
     }
+    /**Fragment changes background color of activity*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -33,6 +34,7 @@ public class MainActivityFragment2 extends Fragment{
         blueButton.setOnClickListener(new View.OnClickListener(){
         @Override
             public void onClick(View view){
+            /**When blueButton is clicked background color of activity changes to blue*/
             View actView = getActivity().findViewById(R.id.actmain);
             actView.setBackgroundColor(Color.parseColor("#000066"));
         }
@@ -42,6 +44,7 @@ public class MainActivityFragment2 extends Fragment{
         redButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                /**When redButton is clicked background color of activity changes to red*/
                 View actView2 = getActivity().findViewById(R.id.actmain);
                 actView2.setBackgroundColor(Color.parseColor("#cd2626"));
             }
@@ -50,6 +53,7 @@ public class MainActivityFragment2 extends Fragment{
         greenButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                /**When greenButton is clicked background color of activity changes to green*/
                 View actView3 = getActivity().findViewById(R.id.actmain);
                 actView3.setBackgroundColor(Color.parseColor("#228b22"));
             }
@@ -58,6 +62,7 @@ public class MainActivityFragment2 extends Fragment{
         whiteButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                /**When whiteButton is clicked background color of activity changes to white*/
                 View actView4 = getActivity().findViewById(R.id.actmain);
                 actView4.setBackgroundColor(Color.parseColor("#fffaf0"));
             }

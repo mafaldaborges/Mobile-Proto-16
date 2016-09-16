@@ -20,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static int PAGE = 1;
 
-
-
-
+    /**Runs both fragments, main activity*/
 
 
     @Override
@@ -31,20 +29,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+        //Set main fragment as the default when the app is opened
         changeFragment(new MainActivityFragment2(), new MainActivityFragment());
-
-
-
-
-
 
 
 
         Button buttonSwitch = (Button) this.findViewById(R.id.change_task);
         buttonSwitch.setOnClickListener(new View.OnClickListener(){
+            /**Uses switch button to go between fragments by using a static int, a ninja helped with this*/
             @Override
             public void onClick(View view) {
-
 
                 if (PAGE == 2) {
                     changeFragment(new MainActivityFragment2(), new MainActivityFragment());
@@ -56,17 +50,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
     public void changeFragment(Fragment oldFragment, Fragment newFragment) {
+        /**Function to switch between fragments, my previous work was turned into a function by a ninja
+         * who showed me how to make my code cleaner*/
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, newFragment);
         transaction.remove(oldFragment);
@@ -96,13 +84,5 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
-        //int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
-        //    return true;
-        //}
-
-        //return super.onOptionsItemSelected(item);
     }
 }
