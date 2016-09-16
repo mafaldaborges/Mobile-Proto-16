@@ -81,7 +81,8 @@ public class MainActivityFragment extends Fragment {
                 alertDialog.setButton(-2, "Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        // not necessary, but could be used
+                        //dialog.cancel();
                     }
                 });
                 alertDialog.show();

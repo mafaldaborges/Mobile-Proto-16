@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.view.LayoutInflater;
 
 public class MainActivity extends AppCompatActivity {
+//    yay, tags! good practice for debugging
     private static final String TAG = "MainActivity";
     public static int PAGE = 1;
 
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FragmentManager fragmentManager = getSupportFragmentManager();
 
         //Set main fragment as the default when the app is opened
         changeFragment(new MainActivityFragment2(), new MainActivityFragment());

@@ -21,6 +21,17 @@ import android.widget.TextView;
 public class MainActivityFragment2 extends Fragment{
     public MainActivityFragment2(){
     }
+    // There are two ways of making comments in Java:
+    // like this
+    /** and like this **/
+    // The /** is better for long block comments since you can do
+    /**
+     * something like this
+     * which is long
+     *  to comment
+     * **/
+    // `//` is better for inline comments
+
     /**Fragment changes background color of activity*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,12 +41,12 @@ public class MainActivityFragment2 extends Fragment{
         Button redButton = (Button) view.findViewById(R.id.redone);
         Button greenButton = (Button) view.findViewById(R.id.greenone);
         Button whiteButton = (Button) view.findViewById(R.id.whiteone);
-
+        // can declare actView once to avoid redundancy
+        final View actView = getActivity().findViewById(R.id.actmain);
         blueButton.setOnClickListener(new View.OnClickListener(){
         @Override
             public void onClick(View view){
             /**When blueButton is clicked background color of activity changes to blue*/
-            View actView = getActivity().findViewById(R.id.actmain);
             actView.setBackgroundColor(Color.parseColor("#000066"));
         }
 
@@ -45,8 +56,7 @@ public class MainActivityFragment2 extends Fragment{
             @Override
             public void onClick(View view){
                 /**When redButton is clicked background color of activity changes to red*/
-                View actView2 = getActivity().findViewById(R.id.actmain);
-                actView2.setBackgroundColor(Color.parseColor("#cd2626"));
+                actView.setBackgroundColor(Color.parseColor("#cd2626"));
             }
         });
 
@@ -54,8 +64,7 @@ public class MainActivityFragment2 extends Fragment{
             @Override
             public void onClick(View view){
                 /**When greenButton is clicked background color of activity changes to green*/
-                View actView3 = getActivity().findViewById(R.id.actmain);
-                actView3.setBackgroundColor(Color.parseColor("#228b22"));
+                actView.setBackgroundColor(Color.parseColor("#228b22"));
             }
         });
 
@@ -63,8 +72,7 @@ public class MainActivityFragment2 extends Fragment{
             @Override
             public void onClick(View view){
                 /**When whiteButton is clicked background color of activity changes to white*/
-                View actView4 = getActivity().findViewById(R.id.actmain);
-                actView4.setBackgroundColor(Color.parseColor("#fffaf0"));
+                actView.setBackgroundColor(Color.parseColor("#fffaf0"));
             }
         });
 
