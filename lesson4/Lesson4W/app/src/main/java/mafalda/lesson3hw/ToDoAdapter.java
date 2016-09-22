@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
  * Created by mafaldaborges on 9/16/16.
  */
 public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
+    // Again, more descriptive naming is generally a good thing
     @BindView(R.id.task_title) TextView textView;
     private Context context;
     private ArrayList<ToDoItem> todoList;

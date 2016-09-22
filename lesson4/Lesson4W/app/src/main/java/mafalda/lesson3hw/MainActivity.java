@@ -16,7 +16,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.view.LayoutInflater;
 
+// In the future, think about more descriptive names for your activities + fragments
 public class MainActivity extends AppCompatActivity {
+
+    // Instead of typing out the name, you can use MainActivity.class.getSimpleName()
     private static final String TAG = "MainActivity";
     public static int PAGE = 1;
 
@@ -27,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Doesn't look like you actually use this
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         //Set main fragment as the default when the app is opened
         changeFragment(new MainActivityFragment2(), new MainActivityFragment());
 
-
-
+        // Butterknife?
         Button buttonSwitch = (Button) this.findViewById(R.id.change_task);
         buttonSwitch.setOnClickListener(new View.OnClickListener(){
             /**Uses switch button to go between fragments by using a static int, a ninja helped with this*/
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeFragment(Fragment oldFragment, Fragment newFragment) {
         /**Function to switch between fragments, my previous work was turned into a function by a ninja
          * who showed me how to make my code cleaner*/
+        // Looks good - that's a good idea!
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, newFragment);
         transaction.remove(oldFragment);

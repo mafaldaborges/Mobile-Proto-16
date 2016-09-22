@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
  * Created by mafaldaborges on 9/14/16.
  */
 public class MainActivityFragment2 extends Fragment{
+    // Try to follow better naming conventions
     @BindView(R.id.actmain) TextView textView;
     public MainActivityFragment2(){
     }
@@ -36,6 +37,11 @@ public class MainActivityFragment2 extends Fragment{
         Button greenButton = (Button) view.findViewById(R.id.greenone);
         Button whiteButton = (Button) view.findViewById(R.id.whiteone);
 
+        /*
+        This section could be rewritten in a cleaner way if you encapsulated the color changing functionality
+        into a separate function. Additionally, you should store colors in the colors.xml resource file instead
+        of typing out the RGB code by hand - this will make the code much more maintainable
+         */
         blueButton.setOnClickListener(new View.OnClickListener(){
         @Override
             public void onClick(View view){
