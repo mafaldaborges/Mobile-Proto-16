@@ -8,17 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="mafalda.lesson6hw.MainActivityFragment"
     tools:showIn="@layout/activity_main">
-
-
-
-
-
-
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
             android:layout_weight="1.75"
             android:weightSum="3"
             android:touchscreenBlocksFocus="true"
