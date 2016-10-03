@@ -12,14 +12,9 @@ import java.util.ArrayList;
 
 /**
  * Created by mafaldaborges on 9/21/16.
+ * Creates methods for data to be saved to the TaskTable
  */
 public class TaskDbHelper extends SQLiteOpenHelper{
-
-    /**Creates methods for data to be saved to the TaskTable*/
-
-
-
-
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "ToDoTable.db";
 
@@ -41,13 +36,11 @@ public class TaskDbHelper extends SQLiteOpenHelper{
     }
 
     public void addToDb(ToDoItem task){
-        /**Adds items to the TaskTable*/
-        SQLiteDatabase dbw = this.getWritableDatabase();
+        // remember to use '//' for line comments and /** for block comments */
+        // Adds items to the TaskTable
         ContentValues values = new ContentValues();
         values.put(TaskTable.FeedEntry.COLUMN_NAME_TASK, task.name);
         values.put(TaskTable.FeedEntry.COLUMN_NAME_COMPLETE,task.complete);
-        long newRowId = dbw.insert(TaskTable.FeedEntry.TABLE_NAME, null, values);
-
     }
 
     public void deleteRow(ToDoItem task){
@@ -60,8 +53,6 @@ public class TaskDbHelper extends SQLiteOpenHelper{
         Log.d("Check delete 2", "After deletion");
         dbw.close();
     }
-
-
 
     public ArrayList<ToDoItem> getAll(){
         /**Gets all items in the TaskTable and returns and array*/
@@ -79,8 +70,6 @@ public class TaskDbHelper extends SQLiteOpenHelper{
             taskArray.add(task);
 
             c.moveToNext();
-
-
         }
 
         dbr.close();
@@ -91,7 +80,6 @@ public class TaskDbHelper extends SQLiteOpenHelper{
         /**Updates an array when data is edited*/
         SQLiteDatabase dbw = this.getReadableDatabase();
 
-
         ContentValues values = new ContentValues();
         values.put(TaskTable.FeedEntry.COLUMN_NAME_TASK, task.name);
         values.put(TaskTable.FeedEntry.COLUMN_NAME_COMPLETE,task.complete);
@@ -100,10 +88,5 @@ public class TaskDbHelper extends SQLiteOpenHelper{
         String[] selectionArgs = {Long.toString(id)};
 
         dbw.update(TaskTable.FeedEntry.TABLE_NAME, values, selection, selectionArgs);
-
     }
-
-
-
-
 }

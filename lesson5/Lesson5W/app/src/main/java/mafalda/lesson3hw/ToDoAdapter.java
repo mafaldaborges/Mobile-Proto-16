@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by mafaldaborges on 9/16/16.
+ * Connects the textview of the to do items with the listview of the fragment
  */
 public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
     @BindView(R.id.task_title) TextView textView;
@@ -30,16 +31,11 @@ public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
     private ArrayList<ToDoItem> todoList;
     private TaskDbHelper dbHelper;
 
-
-
-    /**Connects the textview of the to do items with the listview of the fragment*/
-
     public ToDoAdapter(Context context, ArrayList<ToDoItem> toDoItem, TaskDbHelper taskDbHelper){
         super(context, 0, toDoItem);
         this.todoList = toDoItem;
-        this.context = context;
+        this.context = context; //never actually used so can be removed
         this.dbHelper = taskDbHelper;
-
     }
 
     @Override
@@ -55,11 +51,7 @@ public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
         task_title.setText(toDoItem.name);
         checkBox.setChecked(toDoItem.complete == 1);
 
-
-
-
         //Creates on Click Listener so text can be edited
-
         task_title.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -100,8 +92,6 @@ public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
                 todoList.remove(position);
                 dbHelper.deleteRow(toDoItem);
                 notifyDataSetChanged();
-
-
             }
         });
 
@@ -111,11 +101,8 @@ public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
                 Boolean completed = checkBox.isChecked();
                 toDoItem.complete = completed ? 1 : 0;
                 updateData(position,toDoItem);
-
             }
         });
-
-
 
         return convertView;
     }
@@ -132,7 +119,5 @@ public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
         ArrayList<ToDoItem> temp = dbHelper.getAll();
         dbHelper.updateArray(temp.get(pos).getId(),toDoItem);
         refreshData();
-
     }
 }
-

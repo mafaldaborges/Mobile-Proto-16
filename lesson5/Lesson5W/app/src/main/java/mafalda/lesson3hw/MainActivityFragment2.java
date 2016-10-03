@@ -20,14 +20,19 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//note: in the comment block below is where you'd usually write the description for what the class is meant to do
+
 /**
  * Created by mafaldaborges on 9/14/16.
+ * Fragment changes background color of activity
  */
 public class MainActivityFragment2 extends Fragment{
+    // name this better than "MainActivityFragment2"
+    // e.g., SettingsFragment
 
     public MainActivityFragment2(){
     }
-    /**Fragment changes background color of activity*/
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -38,21 +43,11 @@ public class MainActivityFragment2 extends Fragment{
         Button greenButton = (Button) view.findViewById(R.id.greenone);
         Button whiteButton = (Button) view.findViewById(R.id.whiteone);
 
-
-
-
         blueButton.setOnClickListener(new ColorListener("#000066", (MainActivity) getActivity()));
         redButton.setOnClickListener(new ColorListener("#cd2626", (MainActivity) getActivity()));
         greenButton.setOnClickListener(new ColorListener("#228b22", (MainActivity) getActivity()));
         whiteButton.setOnClickListener(new ColorListener("#fffaf0", (MainActivity) getActivity()));
-
-
-
-
         return view;
     }
-
-
-
-
 }
+// don't leave lots of empty spaces

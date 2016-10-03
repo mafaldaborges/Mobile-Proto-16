@@ -11,19 +11,20 @@ import android.view.View;
 public class ColorListener implements View.OnClickListener {
     /**Creates a class for changing the background color of the activity when a button is pressed*/
 
-    private String hexvaluecolor;
+//    remember to use camelCase or underscores_for_names
+    private String hexValueColor;
     private MainActivity mainActivity;
 
     public ColorListener(String hcolor, MainActivity mainActivity) {
-        hexvaluecolor = hcolor;
+        hexValueColor = hcolor;
         this.mainActivity = mainActivity;
     }
 
     @Override
     public void onClick(View v) {
 
-        mainActivity.findViewById(R.id.actmain).setBackgroundColor(Color.parseColor(hexvaluecolor));
-        mainActivity.setMyColor(Color.parseColor(hexvaluecolor));
+        mainActivity.findViewById(R.id.actmain).setBackgroundColor(Color.parseColor(hexValueColor));
+        mainActivity.setMyColor(Color.parseColor(hexValueColor));
 
 
     }

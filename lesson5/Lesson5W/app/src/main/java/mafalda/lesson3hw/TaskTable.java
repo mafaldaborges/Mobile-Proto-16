@@ -4,11 +4,9 @@ import android.provider.BaseColumns;
 
 /**
  * Created by mafaldaborges on 9/21/16.
+ * Creates a table for data to be saved to using SQLite
  */
 public class TaskTable {
-    /**Creates a table for data to be saved to using SQLite*/
-
-
     private TaskTable(){}
 
     public static class FeedEntry implements BaseColumns {

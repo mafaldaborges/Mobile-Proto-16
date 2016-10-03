@@ -21,7 +21,7 @@ import android.view.LayoutInflater;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    public static int PAGE = 1;
+    public static int PAGE_NUM = 1;
     private int myColor;
 
 
@@ -36,22 +36,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FragmentManager fragmentManager = getSupportFragmentManager();
+//        if variables aren't used you can delete them (they are greyed out and have a squiggly line underneath)
 
         //Set main fragment as the default when the app is opened
         changeFragment(new MainActivityFragment2(), new MainActivityFragment());
 
+//        be clearer on names. it's okay if the names are long
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         String defaultValue = getResources().getString(R.string.saved_background_default);
-        int intDefault = Color.parseColor(defaultValue);
-        int background = sharedPref.getInt(getString(R.string.saved_background), intDefault);
+        int defaultColorInt = Color.parseColor(defaultValue);
+        int backgroundColor = sharedPref.getInt(getString(R.string.saved_background), defaultColorInt);
 
 
-        this.findViewById(R.id.actmain).setBackgroundColor(background);
-        this.setMyColor(background);
-
-
-
+        this.findViewById(R.id.actmain).setBackgroundColor(backgroundColor);
+        this.setMyColor(backgroundColor);
 
 
         Button buttonSwitch = (Button) this.findViewById(R.id.change_task);
@@ -60,12 +58,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (PAGE == 2) {
+                if (PAGE_NUM == 2) {
                     changeFragment(new MainActivityFragment2(), new MainActivityFragment());
-                    PAGE = 1;
+                    PAGE_NUM = 1;
                 } else {
                     changeFragment(new MainActivityFragment(), new MainActivityFragment2());
-                    PAGE = 2;
+                    PAGE_NUM = 2;
                 }
             }
         });
