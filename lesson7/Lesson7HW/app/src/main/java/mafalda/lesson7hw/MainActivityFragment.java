@@ -38,6 +38,7 @@ public class MainActivityFragment extends Fragment {
     private Response.Listener<String> responseListener = new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
+            // use block comments only if you're doing multiline comments.
             /**Tries to take in the JSON array with the stock information, extract the price, and display the price*/
             try{
                 JSONArray company = new JSONArray(response.substring(3));
@@ -54,12 +55,15 @@ public class MainActivityFragment extends Fragment {
         /**Handles errors that occur when getting a response*/
         @Override
         public void onErrorResponse(VolleyError error) {
+            // as a user, I don't always have the Android Monitor to tell me when an error occurs.
+            // what are someother things that you could do to tell me on the screen that something
+            // bad happened (one option: toast)
             Log.e(TAG, "A VolleyError occurred.");
             error.printStackTrace();
         }
     };
 
-    public MainActivityFragment() {
+    public MainActivityFragment() { // should be at the top, or can delete it since you're not using it
     }
 
     @Override
@@ -67,7 +71,7 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
-
+        // remember, delete unused variables
         final Context c = this.getContext();
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -95,16 +99,14 @@ public class MainActivityFragment extends Fragment {
                 .appendPath("info")
                 .appendQueryParameter("info","iq")
                 .appendQueryParameter("q",companyTicker);
-        String stockUrl = builder.build().toString();
-
-        return stockUrl;
+        return builder.build().toString(); //can do this instead
     }
 
     private String extractPriceFromJSON(JSONArray array) throws JSONException {
-        /**Parces the JSON array to get the stock price*/
+        /**Parses the JSON array to get the stock price*/
 
         JSONObject jsonObject = array.getJSONObject(0);
-        String stockPrice = jsonObject.getString("l");
+        String stockPrice = jsonObject.getString("l"); //can just return this instead
         return stockPrice;
     }
 
